@@ -7,7 +7,7 @@ RUN yum clean all
 
 RUN curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
 RUN python get-pip.py 
-RUN pip install -U numpy scipy scikit-learn
+RUN pip install -U numpy scipy scikit-learn astropy matplotlib astroML
 
 # Reduce number of warning messages
 ADD log4j.properties /usr/local/spark/conf/log4j.properties
