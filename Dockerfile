@@ -1,3 +1,6 @@
+FROM sequenceiq/spark:1.1.0
+MAINTAINER thisgokeboysef
+
 ADD src/ /tmp
 RUN /tmp/install.sh
 
