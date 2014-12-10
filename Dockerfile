@@ -1,5 +1,6 @@
-FROM sequenceiq/spark:1.1.0
+FROM phusion/baseimage:latest
 MAINTAINER thisgokeboysef
+
 
 ADD src/ /tmp
 RUN /tmp/install.sh
