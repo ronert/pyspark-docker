@@ -1,10 +1,7 @@
-FROM phusion/baseimage:latest
+FROM progrium/busybox
 MAINTAINER thisgokeboysef
 
-
-#ADD src/ /tmp
-RUN /tmp/install.sh
-
-ENV PATH /root/anaconda/bin:$PATH 
-
-CMD ["/sbin/my_init" , "--","bash", "-l"]
+RUN opkg-install bash bzip2
+ADD conda_install.sh /root/conda_install.sh
+RUN ["bash", "/root/conda_install.sh"]
+ENV PATH /root/miniconda3/bin:$PATH
