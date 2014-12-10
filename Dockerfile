@@ -26,15 +26,16 @@ RUN ( echo "=======================" ) && \
     /bin/bash /Miniconda-latest-Linux-x86_64.sh -b -p /opt/anaconda && \
     rm Miniconda-latest-Linux-x86_64.sh && \
     test -f /opt/anaconda/bin/conda && \
-    conda install --yes pip
-    conda install --yes numpy
-    conda install --yes scipy
-    conda install --yes matplotlib
-    conda install --yes ipython
-    conda install --yes scikit-learn
-    conda install --yes scikit-imag	
-    conda install --yes pandas
-    conda install --yes requests
-    conda install --yes h5py
+    conda install --yes pip && \
+    conda install --yes numpy && \
+    conda install --yes scipy && \
+    conda install --yes matplotlib && \
+    conda install --yes ipython && \
+    conda install --yes scikit-learn && \
+    conda install --yes scikit-image && \	
+    conda install --yes pandas && \
+    conda install --yes requests && \
+    conda install --yes h5py && \
+    pip install astroML 
 
 CMD ["/etc/bootstrap.sh", "-d"]
