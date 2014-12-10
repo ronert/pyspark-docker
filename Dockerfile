@@ -2,7 +2,7 @@ FROM phusion/baseimage:latest
 MAINTAINER thisgokeboysef
 
 
-ADD src/ /tmp
+#ADD src/ /tmp
 RUN /tmp/install.sh
 
 ENV PATH /root/anaconda/bin:$PATH 
