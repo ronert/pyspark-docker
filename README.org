@@ -7,35 +7,6 @@ This Docker image helps you to run Spark (on Docker) with the following installe
 4. scipy 0.14.0
 5. scikit-learn 0.15.2
 
-* Setting up (one-time only)
-
-** On MacOSX:
-*** 1. Install [[http://brew.sh][homebrew]]
-*** 2. Install [[https://www.virtualbox.org/wiki/Downloads][Virtualbox]]
-*** 3. Install boot2docker
-
-Run the following commands in your MacOS terminal.
-
-#+begin_src sh
-brew install boot2docker
-boot2docker init
-boot2docker up
-# The following URL is output as a result of the above "boot2docker up" command. 
-export DOCKER_HOST=tcp://192.168.59.103:2375
-#+end_src
-*** 4. Install docker:
-
-Run the following commands in your MacOS terminal.
-
-#+begin_src sh
-brew install docker
-docker version
-#+end_src
-
-** On other OSes
-
-Make sure that docker is installed and is runnable from the command-line.  
-
 * Starting pyspark
 
 
@@ -91,16 +62,3 @@ SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
   random_state=None, shrinking=True, tol=0.001, verbose=False)
 #+end_src
 
-* (OPTIONAL) Building the docker image yourself
-
-You can build this docker image, by running the following command in
-the same directory as this =README= file. The command will be slow (a
-few minutes) the first time, since numpy and scikitlearn need to be
-compiled from source, but the result is then cached. This step should
-only be necessary if you modify =Dockerfile=
-
-#+begin_src sh
-$ docker build -t pyspark-docker .
-#+end_src
-* Troubleshooting
-If you are unable to access HDFS from pyspark, try running pyspark with the =--master yarn= flag.
