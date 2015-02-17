@@ -1,7 +1,7 @@
 
 This Docker image helps you to run Spark (on Docker) with the following installed:
 
-1. [[https://spark.apache.org/][pySpark]] (Spark 1.2.0) on Hadoop 2.5.1
+1. [[https://spark.apache.org/][pySpark]] (Spark 1.2.1) on Hadoop 2.6.0
 2. python 2.6.6
 3. numpy 1.9.0
 4. scipy 0.14.0
