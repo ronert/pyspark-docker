@@ -1,7 +1,7 @@
 
 This Docker image helps you to run Spark (on Docker) with the following installed:
 
-1. [[https://spark.apache.org/][pySpark]] (Spark 1.1.0) on Hadoop 2.5.1
+1. [[https://spark.apache.org/][pySpark]] (Spark 1.2.0) on Hadoop 2.5.1
 2. python 2.6.6
 3. numpy 1.9.0
 4. scipy 0.14.0
@@ -25,7 +25,7 @@ docker pull smungee/pyspark-docker:latest
 Run the following command to start the container and get a bash prompt
 
 #+begin_src sh
-docker run -i -t -h sandbox smungee/pyspark-docker:latest /etc/bootstrap.sh -bash
+docker run -i -t -p 4040:4040 -h sandbox smungee/pyspark-docker:latest /etc/bootstrap.sh -bash
 #+end_src
 
 ** 3. Start pyspark
