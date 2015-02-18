@@ -16,7 +16,7 @@ ENV SPARK_JAR hdfs:///spark/spark-assembly-1.2.1-hadoop2.4.0.jar
 ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_PREFIX/bin
 
 ### Python and utilities setup
-ENV PATH $PATH:/opt/anaconda/bin
+ENV PATH /opt/anaconda/bin:$PATH
 RUN yum update -y && yum install -y wget bzip2 screen
 RUN echo 'export PATH=/opt/anaconda/bin:$PATH' > /etc/profile.d/conda.sh
 RUN ( echo "=======================" ) && \
@@ -35,6 +35,6 @@ RUN ( echo "=======================" ) && \
     conda install --yes scikit-image && \	
     conda install --yes pandas && \
     conda install --yes requests && \
-    conda install --yes h5py && \
+    conda install --yes h5py
 
 CMD ["/etc/bootstrap.sh", "-d"]
