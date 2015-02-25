@@ -35,5 +35,7 @@ RUN ( echo "=======================" ) && \
     conda install --yes scikit-learn && \
     conda install --yes pandas && \
     pip install pydoop
+RUN echo "SPARK_YARN_USER_ENV=/opt/anaconda/bin/python" > /usr/local/spark/conf/spark-env.sh && \
+    echo "PYSPARK_PYTHON=/opt/anaconda/bin/python" >> /usr/local/spark/conf/spark-env.sh
 
 CMD ["/etc/bootstrap.sh", "-d"]
