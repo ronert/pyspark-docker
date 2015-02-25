@@ -35,6 +35,7 @@ RUN ( echo "=======================" ) && \
     conda install --yes scikit-image && \	
     conda install --yes pandas && \
     conda install --yes requests && \
-    conda install --yes h5py
+    conda install --yes h5py && \
+    pip install smart-open
 
 CMD ["/etc/bootstrap.sh", "-d"]
