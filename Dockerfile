@@ -14,11 +14,10 @@ ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
 ENV SPARK_JAR hdfs:///spark/spark-assembly-1.2.1-hadoop2.4.0.jar
 #ENV HADOOP_USER_NAME hdfs
 ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_PREFIX/bin
-ENV CPATH /opt/anaconda/include:$LD_LIBRARY_PATH
 
 ### Python and utilities setup
 ENV PATH /opt/anaconda/bin:$PATH
-RUN yum --enablerepo=base clean metadata && yum update -y && yum install -y wget bzip2 gcc-c++ boost
+RUN yum --enablerepo=base clean metadata && yum update -y && yum install -y wget bzip2
 RUN echo 'export PATH=/opt/anaconda/bin:$PATH' > /etc/profile.d/conda.sh
 RUN ( echo "=======================" ) && \
     ( echo "Installing Python      " ) && \
@@ -33,8 +32,8 @@ RUN ( echo "=======================" ) && \
     conda install --yes matplotlib && \
     conda install --yes ipython && \
     conda install --yes scikit-learn && \
-    conda install --yes pandas && \
-    pip install pydoop
+    conda install --yes toolz && \
+    conda install --yes pandas
 RUN echo "SPARK_YARN_USER_ENV=/opt/anaconda/bin/python" > /usr/local/spark/conf/spark-env.sh && \
     echo "PYSPARK_PYTHON=/opt/anaconda/bin/python" >> /usr/local/spark/conf/spark-env.sh
 
